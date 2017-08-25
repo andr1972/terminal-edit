@@ -1,3 +1,7 @@
+/*
+  This file is part of https://github.com/borneq/terminal-edit
+  Apache License - see LICENSE file
+*/
 #include <algorithm>
 #include <functional>
 #include <cctype>
