@@ -1,12 +1,12 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "strutils.h"
-#include "CommandProcessor.h"
-#include "Terminal.h"
-#include "FileTab.h"
 #include <boost/filesystem.hpp>
 #include <boost/range/iterator_range.hpp>
+#include "../src/strutils.h"
+#include "../src/Terminal.h"
+#include "CommandProcessor.h"
+#include "FileTab.h"
 
 using namespace std;
 using namespace boost::filesystem;

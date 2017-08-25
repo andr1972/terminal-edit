@@ -1,6 +1,7 @@
 #include "Terminal.h"
 #include "strutils.h"
 #include "ColumnPrinter.h"
+#include <memory>
 #include <curses.h>
 
 namespace terminal {
@@ -51,6 +52,7 @@ namespace terminal {
 			}
 			else if (code == 3) //^C
 			{
+#ifdef _WIN32
 				string text = tl->getSelectedText();
 				int ret = PDC_setclipboard(text.c_str(), text.length());
 				switch (ret)
@@ -61,9 +63,11 @@ namespace terminal {
 					break;
 				default:;//"The string was placed in the clipboard successfully"
 				}
+#endif
 			}
 			else if (code == 22) //^V
 			{
+#ifdef _WIN32
 				char *ptr = NULL;
 				long ret, length = 0;
 				ret = PDC_getclipboard(&ptr, &length);
@@ -77,6 +81,7 @@ namespace terminal {
 					break;
 				default: tl->insertString(ptr);
 				}
+#endif
 			}
 			else if (code == 10)
 			{
@@ -88,10 +93,12 @@ namespace terminal {
 				tl->left(code == KEY_SLEFT);
 			else if (code == KEY_RIGHT || code == KEY_SRIGHT)
 				tl->right(code == KEY_SRIGHT);
+#ifdef _WIN32
 			else if (code == CTL_LEFT)
 				tl->leftWord();
 			else if (code == CTL_RIGHT)
 				tl->rightWord();
+#endif
 			else if (code == KEY_DOWN)
 				tl->replaceLine(history.down().c_str());
 			else if (code == KEY_UP)

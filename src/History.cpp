@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "History.h"
 
 namespace terminal {

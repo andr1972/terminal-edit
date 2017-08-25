@@ -1,5 +1,5 @@
 #include "CommandProcessor.h"
-#include "strutils.h"
+#include "../src/strutils.h"
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>

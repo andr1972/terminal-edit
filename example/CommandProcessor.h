@@ -1,5 +1,5 @@
 #pragma once
-#include "Terminal.h"
+#include "../src/Terminal.h"
 #include "FileTab.h"
 
 struct CommandProcessor;
